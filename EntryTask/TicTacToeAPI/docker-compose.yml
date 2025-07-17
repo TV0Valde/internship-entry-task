@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tictactoe_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  tictactoe:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      BOARD_SIZE: 3
+      WIN_CONDITION: 3
+      STORAGE_TYPE: FILE
+    depends_on:
+      db:
+        condition: service_healthy
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      BOARD_SIZE: 3
+      WIN_CONDITION: 3
+      STORAGE_TYPE: FILE
+    depends_on:
+      db:
+        condition: service_healthy
+      tictactoe:
+        condition: service_started
+
+volumes:
+  postgres_data:

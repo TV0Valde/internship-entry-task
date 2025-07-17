@@ -1,0 +1,8 @@
+{
+  "Id": "8f75800e-31ae-4c7a-a4ef-3b93a4af3fae",
+  "BoardSize": 3,
+  "SerializedBoard": "[\u0022O\u0022,\u0022O\u0022,\u0022X\u0022,null,\u0022X\u0022,\u0022O\u0022,\u0022X\u0022,\u0022X\u0022,null]",
+  "CurrentPlayer": "O",
+  "Status": "XWin",
+  "MovesCount": 7
+}

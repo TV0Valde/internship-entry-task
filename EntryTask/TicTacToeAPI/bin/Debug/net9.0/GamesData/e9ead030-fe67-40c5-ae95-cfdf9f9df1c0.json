@@ -1,0 +1,8 @@
+{
+  "Id": "e9ead030-fe67-40c5-ae95-cfdf9f9df1c0",
+  "BoardSize": 3,
+  "SerializedBoard": "[\u0022O\u0022,null,null,\u0022X\u0022,null,null,null,null,null]",
+  "CurrentPlayer": "O",
+  "Status": "Active",
+  "MovesCount": 2
+}
