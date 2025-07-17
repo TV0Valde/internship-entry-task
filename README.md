@@ -93,7 +93,7 @@ TicTacToeAPI
 }
 ```
 
-### `POST /games/{id}/moves`
+### `POST api/games/{id}/moves`
 
 Ход игрока.
 
@@ -107,7 +107,7 @@ TicTacToeAPI
 
 Идемпотентность: если ход уже отправлялся, вернется тот же ETag.
 
-### `GET /games/{id}`
+### `GET api/games/{id}`
 
 Текущее состояние игры.
 
